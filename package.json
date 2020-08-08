@@ -1,0 +1,23 @@
+{
+  "name": "discordjs-dad-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Green-Avocado/discordjs-dad-bot.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Green-Avocado/discordjs-dad-bot/issues"
+  },
+  "homepage": "https://github.com/Green-Avocado/discordjs-dad-bot#readme",
+  "dependencies": {
+    "discord.js": "^12.2.0",
+    "dotenv": "^8.2.0"
+  }
+}
