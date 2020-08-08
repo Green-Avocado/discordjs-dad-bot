@@ -50,20 +50,18 @@ client.on('message', msg => {
         else if(s.startsWith("i'm ")) {
             dad_joke(msg, 4);
         }
-        else if(s.includes(" im ") || s.includes(" i'm ")) {
-            var n = -1;
+        else if(s.startsWith("i am ")) {
+            dad_joke(msg, 5);
+        }
+        else if(s.includes(" im ") || s.includes(" i'm ") || s.includes(" i am ")) {
+            var n = s.indexOf(" im ");
 
-            if(
-                s.indexOf(" i'm ") == -1
-                || (
-                    s.indexOf(" im ") != -1
-                    && s.indexOf(" im ") < s.indexOf(" i'm ")
-                )
-            ) {
-                n = s.indexOf(" im ") + 4; 
+            if(n == -1 || s.indexOf(" i'm ") < n) {
+                n = s.indexOf(" i'm ") + 5;
             }
-            else {
-                n = s.indexOf(" i'm ") + 5; 
+
+            if(n == -1 || s.indexOf(" i am ") < n) {
+                n = s.indexOf(" i am ") + 6;
             }
 
             dad_joke(msg, n);
