@@ -67,7 +67,7 @@ client.on('message', msg => {
                 n = s.indexOf(" i'm ") + 5;
             }
 
-            if((n == -1 || s.indexOf(" i'm ") < n) && s.indexOf(" i'm ") != -1) {
+            if((n == -1 || s.indexOf(" i’m ") < n) && s.indexOf(" i’m ") != -1) {
                 n = s.indexOf(" i’m ") + 5;
             }
 
