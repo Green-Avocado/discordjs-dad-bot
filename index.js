@@ -70,6 +70,12 @@ client.on('message', msg => {
                 if((n == -1 || s.indexOf(keyword) < n) && s.includes(keyword)) {
                     n = s.indexOf(keyword) + keyword.length;
                 }
+
+                keyword = "\n" + starts[i];
+
+                if((n == -1 || s.indexOf(keyword) < n) && s.includes(keyword)) {
+                    n = s.indexOf(keyword) + keyword.length;
+                }
             }
 
             if(n != -1) {
