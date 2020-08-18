@@ -41,41 +41,40 @@ client.on('ready', () => {
 client.on('message', msg => {
     console.log(msg.content);
 
+    var starts = [
+        "im ",
+        "i'm ",
+        "i’m ",
+        "i am "
+    ];
+
     var s = msg.content.toLowerCase();
 
     if(!msg.author.bot) {
-        if(s.startsWith("im ")) {
-            dad_joke(msg, 3);
-        }
-        else if(s.startsWith("i'm ")) {
-            dad_joke(msg, 4);
-        }
-        else if(s.startsWith("i’m ")) {
-            dad_joke(msg, 4);
-        }
-        else if(s.startsWith("i am ")) {
-            dad_joke(msg, 5);
-        }
-        else if(s.includes(" im ") || s.includes(" i'm ") || s.includes(" i’m ") || s.includes(" i am ")) {
-            var n = -1;
+        let replied = false;
 
-            if((n == -1 || s.indexOf(" im ") < n) && s.indexOf(" im ") != -1) {
-                n = s.indexOf(" im ") + 4;
+        for(let i = 0; i < starts.length; i++) {
+            if(s.startsWith(starts[i])) {
+                dad_joke(msg, starts[i].length);
+                replied = true;
+                break;
+            }
+        }
+
+        if(!replied) {
+            let n = -1;
+
+            for(let i = 0; i < starts.length; i++) {
+                let keyword = " " + starts[i];
+
+                if((n == -1 || s.indexOf(keyword) < n) && s.includes(keyword)) {
+                    n = s.indexOf(keyword) + keyword.length;
+                }
             }
 
-            if((n == -1 || s.indexOf(" i'm ") < n) && s.indexOf(" i'm ") != -1) {
-                n = s.indexOf(" i'm ") + 5;
+            if(n != -1) {
+                dad_joke(msg, n);
             }
-
-            if((n == -1 || s.indexOf(" i’m ") < n) && s.indexOf(" i’m ") != -1) {
-                n = s.indexOf(" i’m ") + 5;
-            }
-
-            if((n == -1 || s.indexOf(" i am ") < n) && s.indexOf(" i am ") != -1) {
-                n = s.indexOf(" i am ") + 6;
-            }
-
-            dad_joke(msg, n);
         }
     }
 });
